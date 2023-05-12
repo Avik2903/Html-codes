@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form" method="post" action="home.html" onsubmit="return validateform()">
+        <table align="center" cellspacing="15px">
+            <tr>
+                <td><b>Name</b></td>
+                <td><input type="text" name="name" id="name" placeholder="Enter Name"></td>
+            </tr>
+            <tr>
+                <td><b>Email</b></td>
+                <td><input type="text" name="email" id="email" placeholder="Enter Email"></td>
+            </tr>
+            <tr>
+                <td><b>Password</b></td>
+                <td><input type="password" name="password" id="password" placeholder="Enter Password"></td>
+            </tr>
+            <tr>
+                <td><b>Confirm Password</b></td>
+                <td><input type="password" name="confirm_password" id="confirm_password"
+                        placeholder="Enter Confirm Password"></td>
+            </tr>
+            <tr>
+                <td><b>Gender</b></td>
+                <td>
+                    <input type="radio" name="gender" id="gender" value="male">Male
+                    <input type="radio" name="gender" id="gender" value="female">Female
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+    function validateform() {
+        var name = document.form.name.value;
+        var password = document.form.password.value;
+        var x = document.form.email.value;
+        var atposition = x.indexOf("@");
+        var dotposition = x.lastIndexOf(".");
+
+        if (name == null || name == "") {
+            alert("Name can't be blank");
+            return false;
+        } else if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return false;
+        }
+        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
+            alert("Please enter a valid e-mail address.");
+            return false;
+        }
+    } 
+</script>
+
+</html>

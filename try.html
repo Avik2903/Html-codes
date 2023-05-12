@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form" method="post" action="reg.html" onsubmit="return validateform()">
+        <table align="center" cellspacing="15px">
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input type="password" name="cpassword"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><input type="radio">Male</td>
+                <td><input type="radio">Female</td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+    function validateform()
+    {
+        var name = document.form.name.value;
+        var password = document.form.password.value;
+        var y = document.form.email.value;
+        var atpos = y.indexOf("@");
+        var dotpos = y.lastIndexOf(".");
+
+        if(name == null || name=="" )
+        {
+        alert("Name cant be blank");
+        return false;
+        }
+        else if(password.length < 6)
+        {
+            alert("Password length should be less than 6");
+            return false;
+        }
+        if(atpos<1 || atpos +2 > dotpos || dotpos + 2>=y.length){
+            alert("Email id is not valid");
+            return false;
+        }
+    }
+</script>
+</html>
